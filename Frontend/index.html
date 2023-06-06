@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="bg-container">
+      <div class="container">
+        <div class="img-container">
+          <img src="./assets/logo.png" />
+          <p>URL Shortener</p>
+        </div>
+        <form onsubmit="formSubmit(event)" class="fill">
+          <input
+            type="text"
+            name="link"
+            placeholder="Enter long link here"
+            required
+          />
+          <p>Customize your link</p>
+          <input
+            type="text"
+            name="alias"
+            placeholder="Enter Alias (Optional)"
+          />
+          <p class="info">Alias must be at least 5 alphanumeric characters.</p>
+          <button type="submit">Shorten URL</button>
+        </form>
+        <form onsubmit="resultSubmit(event)" name="result" class="result none">
+          <p><i class="fa-solid fa-link"></i>&nbsp;Your Long URL</p>
+          <input type="text" name="link" disabled />
+          <p>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>&nbsp;Shortener URL
+          </p>
+          <input type="text" name="shortLink" disabled />
+          <div>
+            <a href="" target="_blank" class="visit-link">
+              <button type="button" class="copy-btn">
+                <i class="fa-solid fa-share"></i>&nbsp;Visit
+              </button>
+            </a>
+            <button type="button" class="copy-btn" onclick="copyLink(event)">
+              <i class="fa-solid fa-copy"></i>&nbsp;Copy
+            </button>
+          </div>
+          <button type="submit">Shorten Another</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
