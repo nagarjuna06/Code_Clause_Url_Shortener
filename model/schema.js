@@ -8,6 +8,10 @@ const linkSchema = new mongoose.Schema(
       type: String,
       unique: true,
     },
+    pin: {
+      type: Number,
+      default: null,
+    },
   },
   {
     timestamps: true,

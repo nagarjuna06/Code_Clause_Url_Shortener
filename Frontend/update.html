@@ -20,7 +20,7 @@
       <div class="container">
         <div class="img-container">
           <img src="./assets/logo.png" />
-          <p>URL Shortener</p>
+          <p>Update Url</p>
         </div>
         <form onsubmit="formSubmit(event)" class="fill">
           <input
@@ -29,36 +29,25 @@
             placeholder="Paste long link here"
             required
           />
-          <p>Customize your link</p>
           <input
             type="text"
             name="alias"
-            oninput="handleAlias(event)"
             maxlength="10"
-            placeholder="Enter Alias (Optional)"
+            placeholder="Enter Your Alias"
+            required
           />
-          <p class="info">Alias must be at least 5 alphanumeric characters.</p>
-          <div class="update-checkbox">
-            <input
-              type="checkbox"
-              id="update"
-              disabled
-              onchange="checkBoxClicked(event)"
-            />
-            <label for="update">I will update this URL in future</label>
-          </div>
           <input
-            type="hidden"
+            type="number"
             name="pin"
             class="pin"
-            placeholder="Set PIN"
+            placeholder="Enter Your PIN"
             maxlength="10"
             required
           />
-          <button type="submit">Shorten URL</button>
+          <button type="submit">Update URL</button>
         </form>
         <form onsubmit="resultSubmit(event)" name="result" class="result none">
-          <p><i class="fa-solid fa-link"></i>&nbsp;Your Long URL</p>
+          <p><i class="fa-solid fa-link"></i>&nbsp;Your Updated Long URL</p>
           <input type="text" name="link" disabled />
           <p>
             <i class="fa-solid fa-wand-magic-sparkles"></i>&nbsp;Shortener URL
@@ -75,13 +64,11 @@
               <span onclick="copyLink(event)"> Copy </span>
             </button>
           </div>
-          <button type="submit">Shorten Another</button>
+          <button type="submit">Update Another</button>
         </form>
-        <div class="link-container">
-          Go to: <a href="/update-url">update url</a>
-        </div>
+        <div class="link-container">Go to: <a href="/">shorten url</a></div>
       </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="./js/update.js"></script>
   </body>
 </html>

@@ -49,11 +49,37 @@ app.post("/shorten", async (req, res) => {
     }
     res.send({ success: true, shortLink: `${origin}/${code}` });
   } catch (err) {
-    res.status(500);
+    res.status(400);
     res.send({ success: false, msg: "This name is already Reserved!" });
   }
 });
 
+app.get("/update-url", (req, res) => {
+  res.sendFile("Frontend/update.html", { root: __dirname });
+});
+
+app.post("/update", async (req, res) => {
+  const { link, alias, pin } = req.body;
+  const { origin } = req.headers;
+  try {
+    const data = await linkModel.findOne({ alias });
+    if (data) {
+      if (data.pin == pin) {
+        await linkModel.updateOne({ alias }, { link, updatedAt: Date.now() });
+        res.send({ success: true, shortLink: `${origin}/${alias}` });
+      } else {
+        res.send({ success: false, msg: "Invalid PIN" });
+      }
+    } else {
+      res.send({ success: false, msg: "Invalid Alias" });
+    }
+  } catch (err) {
+    res.status(500);
+    res.send({ success: false, msg: err.message });
+  }
+});
+
+// Redirect to alias
 app.get("/:alias", async (req, res) => {
   const { alias } = req.params;
   try {

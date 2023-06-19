@@ -92,3 +92,34 @@
   margin: 20px 0px;
   font-family: sans-serif;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.update-checkbox input{
+  width: 15px;
+  height: 15px;
+}
+.update-checkbox{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.update-checkbox label{
+  font-size: 15px;
+  
+}
+.link-container{
+  text-align: center;
+  padding-top: 10px;
+}
+.link-container a{
+  text-decoration: none;
+  color: #087da8;
+  font-weight: bold;
+}
+.link-container a:hover{
+  text-decoration: underline;
+}
